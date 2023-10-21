@@ -2,22 +2,18 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*rtn;
-	size_t	i;
+	char	*new_sub;
+	size_t	l;
 
-	if (!s)
-		return (NULL);
-	if ((size_t)start > ft_strlen(s))
+	l = ft_strlen(s);
+	if (start > l)
 		return (ft_strdup(""));
-	rtn = malloc(sizeof(char) * (len + 1));
-	i = 0;
-	if (!rtn)
-		return (0);
-	while (i < len)
-	{
-		rtn[i] = *(s + start + i);
-		i++;
-	}
-	rtn = '\0';
-	return (rtn);
+	if (l >= len)
+		l = len;
+	if (ft_strlen(s) - start < l)
+		l = ft_strlen(&s[start]);
+	new_sub = (char *)ft_calloc(l + 1, sizeof(char));
+	if (new_sub)
+		ft_strlcpy(new_sub, &s[start], l + 1);
+	return (new_sub);
 }

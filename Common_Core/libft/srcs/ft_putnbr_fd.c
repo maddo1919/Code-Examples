@@ -1,24 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pnourish <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 01:40:32 by pnourish          #+#    #+#             */
+/*   Updated: 2023/05/26 22:18:24 by pnourish         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void	ft_putnumber_fd(int n, int fd)
+static void		st_putchar_fd(char c, int fd);
+
+static size_t	st_abs(int n);
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (fd < 0)
-		return ;
 	if (n < 0)
-	{
-		write(fd, "-", 1);
-		if (n == -2147483648)
-		{
-			write(fd, "2", 1);
-			n = -147483648;
-		}
-		n *= -1;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		n = n % 10;
-	}
-	if (n < 10)
-		ft_putchar_fd(n + 48, fd);
+		st_putchar_fd('-', fd);
+	if (st_abs(n / 10))
+		ft_putnbr_fd(st_abs(n / 10), fd);
+	st_putchar_fd('0' + st_abs(n % 10), fd);
+}
+
+static size_t	st_abs(int n)
+{
+	if (n < 0)
+		n = -n;
+	return (n);
+}
+
+static	void	st_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }
