@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 11:58:41 by jtoty             #+#    #+#             */
-/*   Updated: 2017/08/08 16:11:12 by jtoty            ###   ########.fr       */
+/*   Created: 2021/07/21 13:59:17 by ajordan-          #+#    #+#             */
+/*   Updated: 2021/07/22 10:13:32 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
 #include "libft.h"
 
-
-int	main(void)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char haystack[30] = "aaabcabcd";
-	char needle[10] = "aabc";
+	size_t	i;
 
-	
-	printf("%s",ft_strnstr(haystack, needle, 0));
+	if (!dst && !src)
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
 }

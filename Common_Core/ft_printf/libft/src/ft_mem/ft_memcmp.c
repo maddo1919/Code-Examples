@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 11:58:41 by jtoty             #+#    #+#             */
-/*   Updated: 2017/08/08 16:11:12 by jtoty            ###   ########.fr       */
+/*   Created: 2021/07/22 12:48:23 by ajordan-          #+#    #+#             */
+/*   Updated: 2021/07/27 11:05:55 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
 #include "libft.h"
 
-
-int	main(void)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char haystack[30] = "aaabcabcd";
-	char needle[10] = "aabc";
+	size_t	i;
 
-	
-	printf("%s",ft_strnstr(haystack, needle, 0));
-}
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		i++;
+	}
+	return (0);
+}	
