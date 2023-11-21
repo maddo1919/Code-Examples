@@ -65,7 +65,6 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
 	{	
-		write(1,"fail",4);
 		return (NULL);
 	}
 	read_return = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
