@@ -10,13 +10,13 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 
 void	ft_draw_img(t_conf *conf, int x, int y)
 {
-	mlx_put_immage_to_window(conf->mlx, conf->win, comf->img.img, x, y);
+	mlx_put_image_to_window(conf->mlx, conf->win, conf->img.img, x, y);
 }
 
 int	my_mlx_pixel_get(t_tex t, int x, int y)
 {
 	int	color;
-	inr	*int_addr;
+	int	*int_addr;
 
 	int_addr = (int *)t.addr;
 	color = int_addr[y * t.width + (x * t.width)];
@@ -31,25 +31,25 @@ char	*get_sprite_color(t_tex *tex, int x, int y, int cubesize)
 
 	txt_x = 0;
 	txt_y = 0;
-	txt_x = tex->width / (100 / (((double) x / cubesize) * 100.0));
-	txt_y = tex->height / (100 / (((double) y / cubesize) * 100.0));
+	txt_x = tex->width / (100 / (((double)x / cubesize) * 100.0));
+	txt_y = tex->height / (100 / (((double)y / cubesize) * 100.0));
 	color = tex->addr + ((4 * tex->width * txt_y) + (4 * txt_x));
 	return (color);
 }
 
 int	color_trans(t_tex *tex, char *color)
 {
-	int	transparency;
-	int	actual;
-	int	background;
+	int		transparancy;
+	int		actual;
+	int		background;
 
 	background = 0xFFFFFF;
 	if (!tex)
 		return (background);
-	transparency = my_mlx_pixel_get(*tex, 0, 0);
+	transparancy = my_mlx_pixel_get(*tex, 0, 0);
 	actual = *(int *)color;
-	if (actual == transparency)
+	if (actual == transparancy)
 		return (background);
 	else
 		return (actual);
-}	
+}

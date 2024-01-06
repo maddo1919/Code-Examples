@@ -47,7 +47,10 @@ void	draw_cube(t_conf *conf, int startx, int starty)
 			if (tex)
 				color = get_sprite_color(tex, pos.x, pos.y, conf->cube_size);
 			if (color != NULL)
-				my_mlx_pixel_put(&conf->img, (startx * conf->cube_size) + pos.x, (starty * conf->cube_size) + pos.y, color_trans(tex, color));
+				my_mlx_pixel_put(&conf->img,
+					(startx * conf->cube_size) + pos.x,
+					(starty * conf->cube_size) + pos.y,
+					color_trans(tex, color));
 			pos.x++;
 		}
 		pos.y++;

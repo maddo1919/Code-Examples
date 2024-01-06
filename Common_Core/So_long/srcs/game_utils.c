@@ -1,8 +1,8 @@
 #include "so_long.h"
 
-void	delete_items(t_conf *conf, t_coord next)
+void	delete_item(t_conf *conf, t_coord next)
 {
-	t_list	**temp;
+	t_list	**tmp;
 	t_item	*node;
 
 	tmp = &conf->item_list;

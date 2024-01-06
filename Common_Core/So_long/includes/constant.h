@@ -1,18 +1,18 @@
 #ifndef CONSTANT_H
 # define CONSTANT_H
 
-# define INVALID_ARGS "Usage : ./so_long <map.ber>
+# define INVALID_ARGS "Usage : ./so_long <map.ber>."
 # define NOT_VALID_FILE "Not a valid .ber file."
-# define MAP_IS_DIRECTORY "The maps is a directory."
+# define MAP_IS_DIRECTORY "The map is a directory."
 # define MAP_IS_SYMLINK "The map is a symlink."
 # define NOT_RECTANGULAR "The map is not rectangular."
 # define NOT_CLOSED "The map is not closed."
 # define MISSING_PLAYER_POS "Can't find player position in the map."
-# define MULTIPLE_PLAYER_POS "Found multiple player positions in the map."
+# define MULTIPLE_PLAYER_POS "Found multiple player position in the map."
 # define INVALID_CHARACTER "Map contain invalid character."
 # define NO_EXIT_GATE "Map does not contain exit gate."
 
-# define CANT_EXIT "Cant exit because you dont collect all collectables."
+# define CANT_EXIT "Cant exit because you dont collect all collectibles"
 
 # define ESCAPE 65307
 # define UP 65362
